@@ -1,0 +1,193 @@
+body{
+  margin: 0;
+  background-color: rgb(23, 0, 0);
+}
+.contenedorHeader{
+  width: auto;
+  height: 214.7px;
+}
+.contenedorHeader.scroll{
+  height: 150px;
+}
+.header{
+  width: 100%;
+  height: auto;
+  background-color: black;
+  position: fixed;
+  display: grid;
+  grid-template: 1fr 40px / 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: ". . logo . ."
+                        ". menu menu menu .";
+}
+.header.scroll{
+  height: 50px;
+  grid-template: 5px 1fr 5px / repeat(9,1fr);
+  grid-template-areas:"logo logo . . . . . . ."
+                      "logo logo . menu menu menu . . ."
+                      "logo logo . . . . . . .";
+}
+.contenedorlogos{
+  grid-area: logo;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contenedorlogo{
+  width:  141.7px;
+  padding: 5px 0;
+  /* grid-area: logo; */
+  position: absolute;
+  z-index: 1;
+}
+.contenedorlogoAnimado{
+  padding: 5px 0;
+  width: 141.7px;
+  background-color: black;
+  /* grid-area: logo; */
+  display: grid;
+  grid-auto-rows: 20.3px 62.7px 27px 54.7px;
+  grid-template-areas: "." "gorro" "centro" "barba";
+}
+.contenedorlogoAnimado.scroll{
+  width: 100%;
+  grid-auto-rows: 1fr;
+  grid-template-areas: "centro";
+}
+.contenedorGorro{
+  grid-area: gorro;
+  width: 141.7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.contenedorCentro{
+  grid-area: centro;
+  width: 141.7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contenedorBarba{
+  grid-area: barba;
+  width: 141.7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.imagenLogo{
+  width:  142.7px;
+  height: 164.7px;
+  z-index: 1;
+  opacity: 0;
+  position: relative;
+  left: -0.8px;
+  top: 2px;
+  animation-name: logo;
+  animation-duration: .5s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+.contenedorlogo.scroll, .contenedorGorro.scroll, .contenedorBarba.scroll{
+  display: none;
+}
+.contenedorCentro.scroll{
+  width: 100%;
+}
+.imagenGorro{
+  width: 99%;
+  position: relative;
+  animation-name: gorro;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+.imagenCentro{
+  width: 100%;
+}
+.imagenBarba{
+  width: 99%;
+  position: relative;
+  animation-name: barba;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes logo {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes gorro {
+  0%{
+    top:64px;
+  }
+  100%{
+    top: 1px;
+  }
+}
+
+@keyframes barba {
+  0%{
+    bottom: 56px;
+  }
+  100%{
+    bottom: 1px;
+  }
+}
+
+
+.menu{
+  background-color: black;
+  grid-area: menu;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-areas: ". conocenos postres opiniones .";
+  font-size: 20px;
+  font-family: 'Pompiere', cursive;
+}
+.menu.scroll{
+  grid-template-columns: repeat(3,1fr);
+  grid-template-areas: "conocenos postres opiniones";
+}
+.irAPostres,.irAOpiniones,.irAConocenos{
+  border: 1px solid white;
+  border-radius: 3px;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+}
+.irAPostres:hover,.irAOpiniones:hover,.irAConocenos:hover{
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+}
+.irAConocenos{
+  grid-area: conocenos;
+}
+.irAPostres{
+  grid-area: postres;
+}
+.irAOpiniones{
+  grid-area: opiniones;
+}
+
+.parrallax{
+  background:
+}
+
+.contenedor{
+  width: auto;
+  height: 600px;
+}
+.postres{
+  background-color: rgb(8, 84, 59);
+}
+.opiniones{
+  background-color: rgb(69, 3, 66);
+}

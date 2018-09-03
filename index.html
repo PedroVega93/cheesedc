@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Cheesecake del Cielo</title>
+    <link rel="stylesheet" href="src/css/cheesedc.css">
+    <link href="https://fonts.googleapis.com/css?family=Pompiere" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <div class="contenedorHeader" id="contenedorHeader">
+        <div class="header" id="header">
+          <div class="contenedorlogos">
+            <div class="contenedorlogo" id="contenedorlogo">
+              <img class="imagenLogo" src="src/images/logo.png" alt="">
+            </div>
+            <div class="contenedorlogoAnimado" id="contenedorlogoAnimado">
+              <div class="contenedorGorro" id="contenedorGorro">
+                <img class="imagenGorro" src="src/images/logoGorro.png" alt="">
+              </div>
+              <div class="contenedorCentro" id="contenedorCentro">
+                <img class="imagenCentro" src="src/images/logoCentro.png" alt="">
+              </div>
+              <div class="contenedorBarba" id="contenedorBarba">
+                <img class="imagenBarba" src="src/images/logoBarba.png" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="menu" id="menu">
+            <a class="irAConocenos" href="#conocenos">
+              Conocenos
+            </a>
+            <a class="irAPostres" href="#postres">
+              Postres
+            </a>
+            <a class="irAOpiniones" href="#opiniones">
+              Opiniones
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="contenido">
+      <div class="contenedor conocenos parrallax" id="conocenos">aaaaa
+        <div class="fondoConocenos">
+
+        </div>
+      </div>
+      <div class="contenedor postres parrallax" id="postres">bbbbbbbb
+        <div class="fondoPostres">
+
+        </div>
+      </div>
+      <div class="contenedor opiniones parrallax" id="opiniones">ccccccccc
+        <div class="fondoOpiniones">
+
+        </div>
+      </div>
+    </div>
+    <<script>
+
+      const $contenedorHeader = document.getElementById('contenedorHeader');
+      const $header = document.getElementById('header');
+      const $contenedorLogo = document.getElementById('contenedorlogo');
+      const contenedorlogoAnimado = document.getElementById('contenedorlogoAnimado');
+      const $contenedorGorro = document.getElementById('contenedorGorro');
+      const $contenedorCentro = document.getElementById('contenedorCentro');
+      const $contenedorBarba = document.getElementById('contenedorBarba');
+      const $menu = document.getElementById('menu');
+
+      window.addEventListener("scroll", () => {
+        if(window.scrollY<=50){
+          $contenedorHeader.classList.remove('scroll');
+          $header.classList.remove('scroll');
+          $contenedorLogo.classList.remove('scroll');
+          contenedorlogoAnimado.classList.remove('scroll');
+          $contenedorGorro.classList.remove('scroll');
+          $contenedorCentro.classList.remove('scroll');
+          $contenedorBarba.classList.remove('scroll');
+          $menu.classList.remove('scroll');
+        }else{
+          $contenedorHeader.classList.add('scroll');
+          $header.classList.add('scroll');
+          $contenedorLogo.classList.add('scroll');
+          contenedorlogoAnimado.classList.add('scroll');
+          $contenedorCentro.classList.add('scroll');
+          $contenedorGorro.classList.add('scroll');
+          $contenedorBarba.classList.add('scroll');
+          $menu.classList.add('scroll');
+        }
+      });
+    </script>
+  </body>
+</html>
