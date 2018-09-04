@@ -5,6 +5,7 @@
     <title>Cheesecake del Cielo</title>
     <link rel="stylesheet" href="css/cheesedc.css">
     <link href="https://fonts.googleapis.com/css?family=Pompiere" rel="stylesheet">
+
   </head>
   <body>
     <header>
@@ -27,6 +28,7 @@
             </div>
           </div>
           <div class="menu" id="menu">
+            <div class="vacioIzquierdo" id="vacioIzq"></div>
             <a class="irAConocenos" href="#conocenos">
               Conocenos
             </a>
@@ -36,28 +38,38 @@
             <a class="irAOpiniones" href="#opiniones">
               Opiniones
             </a>
+            <a class="irAContacto" href="#contacto">
+              Contactanos
+            </a>
+            <div class="vacioDerecho" id="vacioDer"></div>
           </div>
         </div>
       </div>
     </header>
     <div class="contenido">
-      <div class="contenedor conocenos parrallax" id="conocenos">aaaaa
+      <div class="contenedor conocenos" id="conocenos">aaaaa
         <div class="fondoConocenos">
-
+          <div class="contenedorImagen1" id="contenedorImagen1">
+            <img src="images/fondo2.png" alt="" class="imagen1">            i
+          </div>
+          <div class="contenedorImagen2" id="contenedorImagen2">
+            <img src="images/fondo.png" alt="" class="imagen2">
+          </div>
         </div>
       </div>
-      <div class="contenedor postres parrallax" id="postres">bbbbbbbb
+      <div class="contenedor postres" id="postres">bbbbbbbb
         <div class="fondoPostres">
 
         </div>
       </div>
-      <div class="contenedor opiniones parrallax" id="opiniones">ccccccccc
+      <div class="contenedor opiniones" id="opiniones">ccccccccc
         <div class="fondoOpiniones">
 
         </div>
       </div>
     </div>
-    <<script>
+    <script>
+
 
       const $contenedorHeader = document.getElementById('contenedorHeader');
       const $header = document.getElementById('header');
@@ -67,9 +79,22 @@
       const $contenedorCentro = document.getElementById('contenedorCentro');
       const $contenedorBarba = document.getElementById('contenedorBarba');
       const $menu = document.getElementById('menu');
+      const $vacioIzq = document.getElementById('vacioIzq');
+      const $vacioDer = document.getElementById('vacioDer');
+
+
+      const $imagenFondo1 = document.getElementById('contenedorImagen1');
+      const $imagenFondo2 = document.getElementById('contenedorImagen2');
 
       window.addEventListener("scroll", () => {
-        if(window.scrollY<=50){
+
+        let position = -10 + window.scrollY;
+          $imagenFondo1.style.top = 100+position*0.5 + 'px';
+          $imagenFondo1.style.transform = 'rotate('+(position*0.05)+'deg)';
+          $imagenFondo2.style.top = 100+position*0.5 + 'px';
+          $imagenFondo2.style.transform = 'rotate(-'+(position*0.05)+'deg)';
+
+        if(position<=50){
           $contenedorHeader.classList.remove('scroll');
           $header.classList.remove('scroll');
           $contenedorLogo.classList.remove('scroll');
@@ -78,6 +103,8 @@
           $contenedorCentro.classList.remove('scroll');
           $contenedorBarba.classList.remove('scroll');
           $menu.classList.remove('scroll');
+          $vacioIzq.classList.remove('scroll');
+          $vacioDer.classList.remove('scroll');
         }else{
           $contenedorHeader.classList.add('scroll');
           $header.classList.add('scroll');
@@ -87,6 +114,8 @@
           $contenedorGorro.classList.add('scroll');
           $contenedorBarba.classList.add('scroll');
           $menu.classList.add('scroll');
+          $vacioIzq.classList.add('scroll');
+          $vacioDer.classList.add('scroll');
         }
       });
     </script>
