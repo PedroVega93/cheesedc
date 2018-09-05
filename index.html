@@ -9,10 +9,11 @@
   </head>
   <body>
     <header>
+      <div class="fondoHeader" id="fondoHeader"></div>
       <div class="contenedorHeader" id="contenedorHeader">
         <div class="header" id="header">
           <div class="contenedorlogos">
-            <div class="contenedorlogo" id="contenedorlogo">
+            <div class="contenedorlogoCompleto" id="contenedorlogoCompleto">
               <img class="imagenLogo" src="images/logo.png" alt="">
             </div>
             <div class="contenedorlogoAnimado" id="contenedorlogoAnimado">
@@ -47,22 +48,29 @@
       </div>
     </header>
     <div class="contenido">
-      <div class="contenedor conocenos" id="conocenos">aaaaa
-        <div class="fondoConocenos">
+      <div class="contenedor portada" id="portada">
+        <div class="fondoPortada">
           <div class="contenedorImagen1" id="contenedorImagen1">
-            <img src="images/fondo2.png" alt="" class="imagen1">            i
+            <img src="images/torta.png" alt="" class="imagen1">
           </div>
-          <div class="contenedorImagen2" id="contenedorImagen2">
-            <img src="images/fondo.png" alt="" class="imagen2">
+          <div class="contenedorBandejaFrente" id="contenedorBandejaFrente">
+            <img src="images/bandejaFrente.png" alt="" class="imagen2">
+          </div>
+          <div class="contenedorBandejaAtras" id="contenedorBandejaAtras">
+            <img src="images/bandejaAtras.png" alt="" class="imagen2">
+          </div>
+          <div class="contenedorConocenos" id="contenedorConocenos">
+            <h1>hola</h1>
+            <h2>somos Cheesecake</h2>
           </div>
         </div>
       </div>
-      <div class="contenedor postres" id="postres">bbbbbbbb
+      <div class="contenedor postres" id="postres">
         <div class="fondoPostres">
 
         </div>
       </div>
-      <div class="contenedor opiniones" id="opiniones">ccccccccc
+      <div class="contenedor opiniones" id="opiniones">
         <div class="fondoOpiniones">
 
         </div>
@@ -70,54 +78,55 @@
     </div>
     <script>
 
-
+      const $fondoHeader = document.getElementById('fondoHeader');
       const $contenedorHeader = document.getElementById('contenedorHeader');
       const $header = document.getElementById('header');
-      const $contenedorLogo = document.getElementById('contenedorlogo');
-      const contenedorlogoAnimado = document.getElementById('contenedorlogoAnimado');
+      const $contenedorlogoCompleto = document.getElementById('contenedorlogoCompleto');
+      const $contenedorlogoAnimado = document.getElementById('contenedorlogoAnimado');
       const $contenedorGorro = document.getElementById('contenedorGorro');
       const $contenedorCentro = document.getElementById('contenedorCentro');
       const $contenedorBarba = document.getElementById('contenedorBarba');
       const $menu = document.getElementById('menu');
       const $vacioIzq = document.getElementById('vacioIzq');
       const $vacioDer = document.getElementById('vacioDer');
+      const $contenedorConocenos = document.getElementById('contenedorConocenos');
 
 
       const $imagenFondo1 = document.getElementById('contenedorImagen1');
-      const $imagenFondo2 = document.getElementById('contenedorImagen2');
+      const $bandejaFrente = document.getElementById('contenedorBandejaFrente');
+      const $bandejaAtras = document.getElementById('contenedorBandejaAtras');
 
+      const elementosDeHeader = [$fondoHeader, $contenedorHeader, $header, $contenedorlogoCompleto, $contenedorlogoAnimado,
+                                  $contenedorCentro, $contenedorGorro, $contenedorBarba, $menu, $vacioIzq, $vacioDer];
+
+      function addClassScroll() {
+      elementosDeHeader.forEach( (e) => e.classList.add('scroll'));
+      }
+      function removeClassScroll() {
+      elementosDeHeader.forEach( (e) => e.classList.remove('scroll'));
+      }
+      let position = 0;
+      let lastScrollTop = 0;
       window.addEventListener("scroll", () => {
-
-        let position = -10 + window.scrollY;
-          $imagenFondo1.style.top = 100+position*0.5 + 'px';
-          $imagenFondo1.style.transform = 'rotate('+(position*0.05)+'deg)';
-          $imagenFondo2.style.top = 100+position*0.5 + 'px';
-          $imagenFondo2.style.transform = 'rotate(-'+(position*0.05)+'deg)';
-
-        if(position<=50){
-          $contenedorHeader.classList.remove('scroll');
-          $header.classList.remove('scroll');
-          $contenedorLogo.classList.remove('scroll');
-          contenedorlogoAnimado.classList.remove('scroll');
-          $contenedorGorro.classList.remove('scroll');
-          $contenedorCentro.classList.remove('scroll');
-          $contenedorBarba.classList.remove('scroll');
-          $menu.classList.remove('scroll');
-          $vacioIzq.classList.remove('scroll');
-          $vacioDer.classList.remove('scroll');
+        position = window.scrollY;
+        if(  position<=1){
+          removeClassScroll();
         }else{
-          $contenedorHeader.classList.add('scroll');
-          $header.classList.add('scroll');
-          $contenedorLogo.classList.add('scroll');
-          contenedorlogoAnimado.classList.add('scroll');
-          $contenedorCentro.classList.add('scroll');
-          $contenedorGorro.classList.add('scroll');
-          $contenedorBarba.classList.add('scroll');
-          $menu.classList.add('scroll');
-          $vacioIzq.classList.add('scroll');
-          $vacioDer.classList.add('scroll');
+          addClassScroll();
         }
-      });
+
+        let st = window.pageYOffset || document.documentElement.scrollTop;
+        console.log(st);
+        if (st > lastScrollTop){
+            $imagenFondo1.style.top = '190px';
+          } else {
+            $imagenFondo1.style.top = '100px';
+          }
+          lastScrollTop = st;
+          $contenedorConocenos.style.top = 100+position*0.2 + 'px';
+        }, false);
+
+
     </script>
   </body>
 </html>
